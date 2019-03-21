@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Easter Egg with Doom Music</title>
+  <script>
+  (function(){
+    // This is just one of many ways how this could be done
+    window.addEventListener("keyup", eeListener); // keyup fires less then keydown
+
+    function eeListener(e){
+      if (e.key === "Pause") {
+        // you found the entrance
+        window.removeEventListener("keyup", eeListener); // listener no longer needed
+
+        // load our easter egg
+        var script = document.createElement('script');
+        script.src = "//cdn.jsdelivr.net/gh/DrSnuggles/Doomsteregg/ee.min.js";
+        document.head.appendChild(script);
+      }
+    };
+
+  })();
+  </script>
+</head>
+<body>
+If you need a break press "Pause"
+</body>
+</html>
